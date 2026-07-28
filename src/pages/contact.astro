@@ -1,0 +1,23 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { Image } from "astro:assets";
+---
+
+<BaseLayout title="联系方式" sideBarActiveItemID="contact">
+  <div class="py-5">
+    <div class="text-3xl w-full font-bold mb-8">联系方式</div>
+    
+    <div class="flex flex-col items-center justify-center space-y-8">
+      <div class="bg-base-200 rounded-lg p-6 overflow-hidden flex justify-center shadow-lg">
+        <Image src="/微信二维码2.webp" alt="微信二维码" width={300} height={300} format="webp" />
+      </div>
+      
+      <div class="divider"></div>
+      
+      <div class="text-center">
+        <div class="text-lg mb-2">或者通过邮箱联系：</div>
+        <a href="mailto:827018095@qq.com" class="text-xl link link-primary hover:underline">827018095@qq.com</a>
+      </div>
+    </div>
+  </div>
+</BaseLayout>

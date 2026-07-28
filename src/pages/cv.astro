@@ -1,0 +1,100 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import TimeLineElement from "../components/cv/TimeLine.astro";
+---
+
+<BaseLayout title="简历" sideBarActiveItemID="cv">
+  <div class="mb-5">
+    <div class="text-3xl w-full font-bold">个人介绍</div>
+  </div>
+
+  <div class="mb-10 text-justify">
+    我是朱浩纲。<br>
+    一名技术驱动的视觉记录者与杂学互联网冲浪选手。<br>
+    在广电与影视行业从业数年。<br>
+    曾深度参与《南京》《丛葬地》等大型纪录片、连云港 2025 城市宣传片及各类政企宣传项目的拍摄及制作。<br>
+    在镜头之外，我热衷于利用互联网和 ai 进行学习和自我提升。<br>
+    <span class="text-2xl font-bold italic">无限进步！</span><br>
+
+  </div>
+
+  <div class="mb-5">
+    <div class="text-3xl w-full font-bold">教育经历</div>
+  </div>
+
+  <div class="time-line-container grid gap-4 mb-10">
+    <TimeLineElement
+     title="金陵中学河西分校（初中）"
+      subtitle="2012 年 -2015 年"
+    />
+    <TimeLineElement
+     title="南京市中华中学（高中）"
+      subtitle="2015 年 -2018 年"
+    />
+    <TimeLineElement
+      title="南京林业大学"
+      subtitle="2018年-2022年 广播电视学专业 人文社会科学学院 学士学历"
+    />
+  </div>
+
+  <div class="mb-5">
+    <div class="text-3xl w-full font-bold">工作经历</div>
+  </div>
+
+  <div class="time-line-container mb-10 text-justify whitespace-pre-line">
+    <TimeLineElement
+      title="南京广播电视集团 摄像记者/剪辑师"
+      subtitle="2022.01-2024.03（含实习）江苏南京"
+    >
+      负责新闻专题、纪录片、活动等视频内容的拍摄与剪辑。<br>
+      参与节目策划与创意讨论，提供视觉呈现方案。<br>
+      ___________________________________<br>
+      真心感谢在职期间同事们对我的宽容和耐心，以及不遗余力的指导。<br>
+      这是我毕业的第一份工作，期间种种都对我的为人处事和工作态度产生了积极的影响。<br>
+      ___________________________________<br>
+      参与作品：《南京》第六季、《丛葬地》、《江苏社科名家·胡福明》、《杨苡——人生值得一过》、《城市面孔》等<br>
+    </TimeLineElement>
+    <TimeLineElement
+      title="江苏中视数字科技 摄影/摄像"
+      subtitle="2024.05-2024.09   江苏连云港"
+    >
+      负责各类宣传项目拍摄执行，具备出色的需求对接和应急处理能力。<br>
+      服务华电、国能等大型政企客户，完成多项宣传片、汇报片、日常框架项目<br>
+    </TimeLineElement>
+    <TimeLineElement
+      title="连云港中天影视有限公司 摄像/剪辑"
+      subtitle="2024.09-至今 江苏连云港"
+    >
+      参与多个大型纪录片和专题节目的制作，具备丰富现场拍摄及客户对接经验。<br>
+      代表作品：2025连云港城市形象宣传片、2025苏超连云港纪录片等。<br>
+    </TimeLineElement>
+  </div>
+
+  <div class="mb-5">
+    <div class="text-3xl w-full font-bold">认证和证书</div>
+  </div>
+
+  <ul class="list-disc mx-6 mb-10 grid gap-2">
+    <li>
+      <a href="#" target="_blank"> 日语JLPT N2 </a>
+    </li>
+    <li>
+      <a href="#" target="_blank"> 无偿献血奉献奖金奖</a>
+    </li>
+     <li>
+      <a href="#" target="_blank"> 无大学英语四级</a>
+    </li>
+  </ul>
+
+  <div class="mb-5">
+    <div class="text-3xl w-full font-bold">个人技能</div>
+  </div>
+
+  <ul class="flex flex-wrap gap-3">
+    <li class="badge badge-lg badge-outline">docker 容器化部署</li>
+    <li class="badge badge-lg badge-outline">熟练 vibe coding</li>
+    <li class="badge badge-lg badge-outline">家庭网络部署和维护</li>
+    <li class="badge badge-lg badge-outline">网站制作</li>
+    <li class="badge badge-lg badge-outline">素材的存档及维护</li>
+  </ul>
+</BaseLayout>

@@ -1,0 +1,40 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import HorizontalCard from "../components/HorizontalCard.astro";
+---
+
+<BaseLayout title="服务" sideBarActiveItemID="services">
+  <div>
+    <div class="text-3xl w-full font-bold mb-5">我的服务</div>
+  </div>
+
+  <HorizontalCard
+    title="服务 1"
+    img="/post_img.webp"
+    desc="这是服务项目的描述内容。"
+    badge="新服务"
+    url="#"
+  />
+  <div class="divider my-0"></div>
+  <HorizontalCard
+    title="服务 2"
+    img="/post_img.webp"
+    desc="这是服务项目的描述内容。"
+    url="#"
+  />
+  <div class="divider my-0"></div>
+  <HorizontalCard
+    title="服务 3"
+    img="/post_img.webp"
+    desc="这是服务项目的描述内容。"
+    url="#"
+    badge="新服务"
+  />
+  <div class="divider my-0"></div>
+  <HorizontalCard
+    title="服务 4"
+    img="/post_img.webp"
+    desc="这是服务项目的描述内容。"
+    url="#"
+  />
+</BaseLayout>

@@ -1,0 +1,74 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import HorizontalCard from "../components/HorizontalCard.astro";
+import { getCollection } from "astro:content";
+import createSlug from "../lib/createSlug"
+
+const posts = (await getCollection("blog")).sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+
+const last_posts = posts.slice(0, 3);
+---
+
+<BaseLayout sideBarActiveItemID="home">
+  <div class="pb-12 mt-5">
+    <div class="text-xl py-1">你好 👋</div>
+    <div class="text-5xl font-bold">我是 朱浩纲</div>
+    <div class="text-3xl py-3 font-bold">一名影视从业者</div>
+    <div class="py-2">
+      <text class="text-lg">
+        这是我的个人简历网站。展示了我过去的作品、技能、简历……etc<br />
+		祝你生活愉快
+      </text>
+    </div>
+    <div class="mt-8">
+      <a class="btn" href="/contact"> 联系我!</a>
+    </div>
+  </div>
+
+  <div>
+    <div class="text-3xl w-full font-bold mb-2">我的最新项目</div>
+  </div>
+
+  <HorizontalCard
+    title="2025 连云港国际形象宣传片"
+    img="/连云港国际形象宣传片0107.mp4_20260721_103731.630.webp"
+    desc="片中担任：摄影；DIT"
+    url="https://www.xinpianchang.com/a13756501"
+    badge="宣传片"
+  />
+  <div class="divider my-0"></div>
+  <HorizontalCard
+    title="医美机构互动宣传快剪"
+    img="/短宣传片.mp4_20260721_105324.609.webp"
+    desc="片中担任：摄影；剪辑"
+    url="https://www.xinpianchang.com/a13756513"
+  />
+  <div class="divider my-0"></div>
+  <HorizontalCard
+    title="作品集混剪"
+    img="/post_img.webp"
+    desc="片中担任：摄影；剪辑"
+    url="#"
+    badge="作品集"
+  />
+
+  <div>
+    <div class="text-3xl w-full font-bold mb-5 mt-10">最新博客</div>
+  </div>
+
+  {
+    last_posts.map((post) => (
+      <>
+        <HorizontalCard
+          title={post.data.title}
+          img={post.data.heroImage}
+          desc={post.data.description}
+          url={"/blog/" + createSlug(post.data.title, post.slug)}
+          target="_self"
+          badge={post.data.badge}
+        />
+        <div class="divider my-0" />
+      </>
+    ))
+  }
+</BaseLayout>

@@ -1,0 +1,19 @@
+---
+const { sideBarActiveItemID } = Astro.props;
+const activeClass= "bg-base-300";
+---
+
+<ul class="menu grow shrink menu-md overflow-y-auto">
+    <li><a class="py-3 text-base" id="home" href="/">首页</a></li>
+    <li><a class="py-3 text-base" id="cv" href="/cv">简历</a></li>
+    <li><a class="py-3 text-base" id="projects" href="/projects">项目</a></li>
+    <li><a class="py-3 text-base" id="services" href="/services">服务</a></li>
+    <li><a class="py-3 text-base" id="blog" href="/blog/">博客</a></li>
+    <li><a class="py-3 text-base" id="contact" href="/contact">联系方式</a></li>
+</ul>
+
+
+<script define:vars={{ sideBarActiveItemID: sideBarActiveItemID, activeClass: activeClass }}>
+const activeItemElem = document.getElementById(sideBarActiveItemID);
+activeItemElem && activeItemElem.classList.add(activeClass);
+</script>

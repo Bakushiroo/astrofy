@@ -1,0 +1,51 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import HorizontalCard from "../components/HorizontalCard.astro";
+---
+
+<BaseLayout title = "项目" sideBarActiveItemID="projects">
+  <div>
+    <div class="text-3xl w-full font-bold mb-5">项目展示</div>
+  </div>
+
+  <HorizontalCard
+    title="示例项目 1"
+    img="/post_img.webp"
+    desc="这是一个示例项目的描述内容。"
+    url="#"
+    badge="新项目"
+  />
+  <div class="divider my-0"></div>
+  <HorizontalCard
+    title="示例项目 2"
+    img="/post_img.webp"
+    desc="这是另一个示例项目的描述内容。"
+    url="#"
+  />
+
+  <div>
+    <div class="text-3xl w-full font-bold mb-5 mt-10">更多项目</div>
+  </div>
+
+  <HorizontalCard
+    title="示例项目 3"
+    img="/post_img.webp"
+    desc="这是一个示例项目的描述内容。"
+    url="#"
+    badge="开源"
+  />
+  <div class="divider my-0"></div>
+  <HorizontalCard
+    title="示例项目 4"
+    img="/post_img.webp"
+    desc="这是另一个示例项目的描述内容。"
+    url="#"
+  />
+  <div class="divider my-0"></div>
+  <HorizontalCard
+    title="示例项目 5"
+    img="/post_img.webp"
+    desc="这是另一个示例项目的描述内容。"
+    url="#"
+  />
+</BaseLayout>
