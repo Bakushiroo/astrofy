@@ -1,0 +1,147 @@
+---
+/**
+ * 家庭影视工作站 & 万兆私有云 网络架构图
+ * 纯 HTML + 内联 SVG 渲染，矢量自适应，无需图片资源
+ */
+---
+
+<div class="rounded-lg bg-base-100 p-6 md:p-8 shadow-md border border-base-300">
+  <div class="flex items-center justify-between mb-4 flex-wrap gap-2">
+    <h3 class="text-xl font-bold">家庭影视工作站 & 万兆私有云 — 拓扑图</h3>
+    <div class="flex gap-2 flex-wrap text-xs">
+      <span class="badge badge-outline">光猫</span>
+      <span class="badge badge-outline">主路由</span>
+      <span class="badge badge-outline">AP</span>
+      <span class="badge badge-outline">交换机</span>
+      <span class="badge badge-outline badge-secondary">万兆</span>
+      <span class="badge badge-outline badge-info">存储</span>
+    </div>
+  </div>
+
+  <div class="relative w-full overflow-x-auto">
+    <svg
+      viewBox="0 0 800 520"
+      class="w-full h-auto min-w-[640px]"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <defs>
+        <!-- 箭头标记 -->
+        <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+          <path d="M 0 0 L 10 5 L 0 10 z" fill="currentColor" />
+        </marker>
+        <!-- 万兆连线（强调） -->
+        <marker id="arrow-10g" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M 0 0 L 10 5 L 0 10 z" fill="#a855f7" />
+        </marker>
+        <!-- 普通连线 -->
+        <marker id="arrow-1g" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+          <path d="M 0 0 L 10 5 L 0 10 z" fill="#64748b" />
+        </marker>
+
+        <!-- 节点阴影 -->
+        <filter id="node-shadow" x="-20%" y="-20%" width="140%" height="140%">
+          <feDropShadow dx="0" dy="2" stdDeviation="2" flood-color="#000" flood-opacity="0.15" />
+        </filter>
+      </defs>
+
+      <!-- ============ 连线层（先画线，避免遮挡节点）============ -->
+
+      <!-- 光猫 -> iStoreOS -->
+      <line x1="170" y1="100" x2="318" y2="100" stroke="#64748b" stroke-width="2" marker-end="url(#arrow-1g)" />
+      <text x="244" y="92" text-anchor="middle" class="text-[11px]" fill="#64748b">WAN / PPPoE</text>
+
+      <!-- iStoreOS -> 无线AP -->
+      <line x1="540" y1="80" x2="640" y2="50" stroke="#64748b" stroke-width="2" marker-end="url(#arrow-1g)" />
+      <text x="600" y="42" text-anchor="middle" class="text-[11px]" fill="#64748b">Wi-Fi</text>
+
+      <!-- iStoreOS -> 交换机 -->
+      <line x1="430" y1="160" x2="430" y2="218" stroke="#64748b" stroke-width="2" marker-end="url(#arrow-1g)" />
+      <text x="445" y="195" class="text-[11px]" fill="#64748b">2.5G LAN</text>
+
+      <!-- 交换机 -> NAS1（万兆） -->
+      <line x1="370" y1="280" x2="220" y2="378" stroke="#a855f7" stroke-width="3" marker-end="url(#arrow-10g)" />
+      <text x="265" y="345" class="text-[11px] font-bold" fill="#a855f7">10GbE</text>
+
+      <!-- 交换机 -> NAS2（万兆） -->
+      <line x1="430" y1="280" x2="430" y2="378" stroke="#a855f7" stroke-width="3" marker-end="url(#arrow-10g)" />
+
+      <!-- 交换机 -> 个人电脑（2.5G） -->
+      <line x1="490" y1="280" x2="640" y2="378" stroke="#0ea5e9" stroke-width="2" marker-end="url(#arrow-1g)" />
+      <text x="585" y="345" class="text-[11px]" fill="#0ea5e9">10G</text>
+
+      <!-- ============ 节点层 ============ -->
+
+      <!-- 光猫 -->
+      <g filter="url(#node-shadow)">
+        <rect x="60" y="70" width="110" height="60" rx="10" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="2" />
+        <text x="115" y="98" text-anchor="middle" class="text-[15px] font-bold" fill="#0f172a">光猫</text>
+        <text x="115" y="116" text-anchor="middle" class="text-[11px]" fill="#64748b">ISP Bridge</text>
+      </g>
+
+      <!-- iStoreOS 软路由 -->
+      <g filter="url(#node-shadow)">
+        <rect x="320" y="60" width="220" height="80" rx="10" fill="#fef3c7" stroke="#f59e0b" stroke-width="2" />
+        <text x="430" y="90" text-anchor="middle" class="text-[16px] font-bold" fill="#78350f">iStoreOS 软路由</text>
+        <text x="430" y="110" text-anchor="middle" class="text-[11px]" fill="#92400e">主路由 · 防火墙 · NAT</text>
+        <text x="430" y="126" text-anchor="middle" class="text-[10px] fill="#a16207">Docker / 科学上网 / DDNS</text>
+      </g>
+
+      <!-- 无线 AP -->
+      <g filter="url(#node-shadow)">
+        <rect x="640" y="20" width="120" height="60" rx="10" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="2" />
+        <text x="700" y="48" text-anchor="middle" class="text-[15px] font-bold" fill="#0f172a">无线 AP</text>
+        <text x="700" y="66" text-anchor="middle" class="text-[11px]" fill="#64748b">漫游 · VLAN</text>
+      </g>
+
+      <!-- 交换机 -->
+      <g filter="url(#node-shadow)">
+        <rect x="320" y="220" width="220" height="60" rx="10" fill="#dbeafe" stroke="#3b82f6" stroke-width="2" />
+        <text x="430" y="248" text-anchor="middle" class="text-[15px] font-bold" fill="#1e3a8a">万兆交换机</text>
+        <text x="430" y="266" text-anchor="middle" class="text-[11px]" fill="#1e40af">核心交换 · 10G + 2.5G</text>
+      </g>
+
+      <!-- NAS1 - 反向代理 / 外网访问 -->
+      <g filter="url(#node-shadow)">
+        <rect x="120" y="380" width="200" height="100" rx="10" fill="#ecfeff" stroke="#06b6d4" stroke-width="2" />
+        <text x="220" y="408" text-anchor="middle" class="text-[15px] font-bold" fill="#155e75">NAS 1</text>
+        <text x="220" y="426" text-anchor="middle" class="text-[11px]" fill="#0e7490">All-in-One</text>
+        <text x="220" y="444" text-anchor="middle" class="text-[10px]" fill="#0891b2">Nginx Proxy Manager</text>
+        <text x="220" y="460" text-anchor="middle" class="text-[10px]" fill="#0891b2">Docker · Jellyfin · Vaultwarden</text>
+        <text x="220" y="476" text-anchor="middle" class="text-[10px] font-bold" fill="#0891b2">外网访问家庭服务</text>
+      </g>
+
+      <!-- NAS2 - 万兆剪辑存储 -->
+      <g filter="url(#node-shadow)">
+        <rect x="350" y="380" width="160" height="100" rx="10" fill="#f3e8ff" stroke="#a855f7" stroke-width="2" />
+        <text x="430" y="408" text-anchor="middle" class="text-[15px] font-bold" fill="#581c87">NAS 2</text>
+        <text x="430" y="426" text-anchor="middle" class="text-[11px]" fill="#6b21a8">万兆剪辑存储</text>
+        <text x="430" y="444" text-anchor="middle" class="text-[10px]" fill="#7e22ce">RAID5 · 4K/8K 素材</text>
+        <text x="430" y="460" text-anchor="middle" class="text-[10px]" fill="#7e22ce">SMB / NFS 协议</text>
+        <text x="430" y="476" text-anchor="middle" class="text-[10px] font-bold" fill="#7e22ce">DIT 上载 / 归档</text>
+      </g>
+
+      <!-- 个人电脑 -->
+      <g filter="url(#node-shadow)">
+        <rect x="540" y="380" width="200" height="100" rx="10" fill="#fef9c3" stroke="#ca8a04" stroke-width="2" />
+        <text x="640" y="408" text-anchor="middle" class="text-[15px] font-bold" fill="#713f12">个人电脑</text>
+        <text x="640" y="426" text-anchor="middle" class="text-[11px]" fill="#854d0e">剪辑工作站（自组）</text>
+        <text x="640" y="444" text-anchor="middle" class="text-[10px]" fill="#a16207">Premiere · DaVinci</text>
+        <text x="640" y="460" text-anchor="middle" class="text-[10px]" fill="#a16207">万兆直连 NAS2</text>
+        <text x="640" y="476" text-anchor="middle" class="text-[10px] font-bold" fill="#a16207">零延迟调取素材</text>
+      </g>
+    </svg>
+  </div>
+
+
+  <!-- 文字说明 -->
+  <div class="mt-4 text-sm text-base-content/70 leading-relaxed">
+    <p>
+      <b class="text-base-content">架构说明：</b>
+      光猫桥接后由 <b class="text-amber-700">iStoreOS 软路由</b> 接管，承担主路由/防火墙/DHCP/NAT 等职责；
+      无线 AP 提供 Wi-Fi 漫游；核心 <b class="text-blue-800">万兆交换机</b> 下联两台 NAS 和个人电脑。
+      <b class="text-cyan-700">NAS1</b> 跑 Docker 全家桶 + 反向代理（外网入口）；
+      <b class="text-purple-700">NAS2</b> 是独立万兆剪辑池，承接 4K/8K 素材；
+      <b class="text-yellow-700">个人电脑</b> 自组硬件，万兆直连 NAS2 实现剪辑素材零延迟读取。
+    </p>
+  </div>
+</div>

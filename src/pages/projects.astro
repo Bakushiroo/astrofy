@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import HorizontalCard from "../components/HorizontalCard.astro";
+import HomeLabDiagram from "../components/HomeLabDiagram.astro";
 ---
 
 <BaseLayout title = "项目" sideBarActiveItemID="projects">
@@ -9,43 +10,50 @@ import HorizontalCard from "../components/HorizontalCard.astro";
   </div>
 
   <HorizontalCard
-    title="示例项目 1"
-    img="/post_img.webp"
-    desc="这是一个示例项目的描述内容。"
-    url="#"
-    badge="新项目"
+    title="2025 连云港国际形象宣传片"
+    img="/连云港国际形象宣传片0107.mp4_20260721_103731.630.webp"
+    desc="片中担任：摄影；DIT"
+    url="https://www.xinpianchang.com/a13756501"
+    badge="宣传片"
   />
   <div class="divider my-0"></div>
   <HorizontalCard
-    title="示例项目 2"
-    img="/post_img.webp"
-    desc="这是另一个示例项目的描述内容。"
-    url="#"
+    title="医美机构互动宣传快剪"
+    img="/短宣传片.mp4_20260721_105324.609.webp"
+    desc="片中担任：摄影；剪辑"
+    url="https://www.xinpianchang.com/a13756513"
+  />
+  <div class="divider my-0"></div>
+  <HorizontalCard
+    title="纪录片《南京》第六季第四集"
+    img="/sunrise.webp"
+    desc="片中担任：摄影；剪辑"
+    url="https://m2.nbs.cn/video/723623.html"
+    badge="纪录片"
   />
 
   <div>
-    <div class="text-3xl w-full font-bold mb-5 mt-10">更多项目</div>
+    <div class="text-3xl w-full font-bold mb-5 mt-10">个人技术项目</div>
   </div>
 
-  <HorizontalCard
-    title="示例项目 3"
-    img="/post_img.webp"
-    desc="这是一个示例项目的描述内容。"
-    url="#"
-    badge="开源"
-  />
-  <div class="divider my-0"></div>
-  <HorizontalCard
-    title="示例项目 4"
-    img="/post_img.webp"
-    desc="这是另一个示例项目的描述内容。"
-    url="#"
-  />
-  <div class="divider my-0"></div>
-  <HorizontalCard
-    title="示例项目 5"
-    img="/post_img.webp"
-    desc="这是另一个示例项目的描述内容。"
-    url="#"
-  />
+  <div class="rounded-lg bg-base-100 hover:shadow-xl transition ease-in-out hover:scale-[102%] p-5 md:p-6">
+    <div class="flex items-start justify-between flex-wrap gap-2 mb-2">
+      <h1 class="text-xl font-bold">
+        家庭影视工作站 & 万兆私有云（自组硬件 + iStoreOS 软路由）
+        <div class="badge badge-secondary mx-2">网工 / NAS / DIT</div>
+      </h1>
+    </div>
+    <p class="py-1 text-base whitespace-pre-line">{
+      [
+        "• 硬件：全自行选购组装 — 双 NAS（All in One + 万兆剪辑存储）+ iStoreOS 软路由 + 万兆交换机 + 无线 AP 分层网络架构",
+        "• 网络：光猫 → iStoreOS 软路由（主路由/防火墙）→ 交换机分线，支持万兆局域网剪辑、无线漫游、VLAN 隔离",
+        "• 服务：NAS1 部署反向代理 + Docker 全家桶，实现外网安全访问家庭服务；NAS2 独立万兆存储池，专用于 4K/8K 视频剪辑工作流",
+        "• 应用场景：影视素材分级归档、异地协作访问、剪辑工作站零延迟调取素材，个人工作流 DIT 全链路闭环"
+      ].join("\n")
+    }</p>
+  </div>
+
+  <div class="mt-6">
+    <HomeLabDiagram />
+  </div>
 </BaseLayout>

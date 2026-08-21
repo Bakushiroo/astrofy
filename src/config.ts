@@ -5,3 +5,6 @@ export const SITE_TITLE = 'Astrofy | Personal Portfolio Website Template';
 export const SITE_DESCRIPTION = 'Astrofy is a free and open-source template for your Personal Portfolio Website built with Astro and TailwindCSS. Create in minutes a website with Blog, CV, Project Section, Store and RSS Feed.';
 export const GENERATE_SLUG_FROM_TITLE = true
 export const TRANSITION_API = true
+
+// Feature flags: 把开关设为 true 即可重新显示对应模块
+export const SHOW_BLOG = false

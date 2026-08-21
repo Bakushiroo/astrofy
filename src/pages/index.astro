@@ -2,6 +2,7 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import HorizontalCard from "../components/HorizontalCard.astro";
 import { getCollection } from "astro:content";
+import { SHOW_BLOG } from "../config";
 import createSlug from "../lib/createSlug"
 
 const posts = (await getCollection("blog")).sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
@@ -26,7 +27,7 @@ const last_posts = posts.slice(0, 3);
   </div>
 
   <div>
-    <div class="text-3xl w-full font-bold mb-2">我的最新项目</div>
+    <div class="text-3xl w-full font-bold mb-2">我的代表作</div>
   </div>
 
   <HorizontalCard
@@ -45,30 +46,34 @@ const last_posts = posts.slice(0, 3);
   />
   <div class="divider my-0"></div>
   <HorizontalCard
-    title="作品集混剪"
-    img="/post_img.webp"
+    title="纪录片《南京》第六季第四集"
+    img="/sunrise.webp"
     desc="片中担任：摄影；剪辑"
-    url="#"
-    badge="作品集"
+    url="https://m2.nbs.cn/video/723623.html"
+    badge="纪录片"
   />
 
-  <div>
-    <div class="text-3xl w-full font-bold mb-5 mt-10">最新博客</div>
-  </div>
+  {SHOW_BLOG && (
+    <>
+      <div>
+        <div class="text-3xl w-full font-bold mb-5 mt-10">最新博客</div>
+      </div>
 
-  {
-    last_posts.map((post) => (
-      <>
-        <HorizontalCard
-          title={post.data.title}
-          img={post.data.heroImage}
-          desc={post.data.description}
-          url={"/blog/" + createSlug(post.data.title, post.slug)}
-          target="_self"
-          badge={post.data.badge}
-        />
-        <div class="divider my-0" />
-      </>
-    ))
-  }
+      {
+        last_posts.map((post) => (
+          <>
+            <HorizontalCard
+              title={post.data.title}
+              img={post.data.heroImage}
+              desc={post.data.description}
+              url={"/blog/" + createSlug(post.data.title, post.slug)}
+              target="_self"
+              badge={post.data.badge}
+            />
+            <div class="divider my-0" />
+          </>
+        ))
+      }
+    </>
+  )}
 </BaseLayout>

@@ -9,32 +9,48 @@ import HorizontalCard from "../components/HorizontalCard.astro";
   </div>
 
   <HorizontalCard
-    title="服务 1"
-    img="/post_img.webp"
-    desc="这是服务项目的描述内容。"
-    badge="新服务"
-    url="#"
+    title="宣传片 / 纪录片 拍摄与制作"
+    img="/连云港国际形象宣传片0107.mp4_20260721_103731.630.webp"
+    desc={[
+      "· 政企宣传片、城市形象片、纪录片、专题片的拍摄执行与后期制作",
+      "· 服务客户案例：连云港 2025 城市形象宣传片、大型纪录片《南京》系列",
+      "· 广电级设备选型 → 现场拍摄 → DIT 素材管理 → 后期剪辑，全流程可控"
+    ].join("\n")}
+    badge="影视制作"
+    url="/projects"
+    target="_self"
   />
   <div class="divider my-0"></div>
   <HorizontalCard
-    title="服务 2"
-    img="/post_img.webp"
-    desc="这是服务项目的描述内容。"
-    url="#"
+    title="活动 / 会议 / 访谈 摄像"
+    img="/短宣传片.mp4_20260721_105324.609.webp"
+    desc={[
+      "· 活动纪实、会议录制、人物访谈、活动花絮等多机位拍摄与剪辑",
+      "· 快速交付：活动当天出花絮 / 快剪 / 精剪多种交付节奏",
+      "· 可提供 DIT 现场同步备份，素材零丢失保障"
+    ].join("\n")}
+    url="/projects"
+    target="_self"
   />
   <div class="divider my-0"></div>
   <HorizontalCard
-    title="服务 3"
-    img="/post_img.webp"
-    desc="这是服务项目的描述内容。"
-    url="#"
-    badge="新服务"
+    title="小型工作室网络 & 私有云搭建"
+    img="/itemPreview.webp"
+    desc={[
+      "· 基于个人/小型工作室局域网部署方案：万兆剪辑局域网、NAS 存储、网络布线建议",
+      "· 影视素材分级归档、异地访问、剪辑工作站协同方案",
+      "· 具备从硬件选型到部署上线的完整动手能力（个人家庭网络为实战案例）"
+    ].join("\n")}
+    badge="咨询 / 部署"
   />
   <div class="divider my-0"></div>
   <HorizontalCard
-    title="服务 4"
+    title="DIT 素材管理与数据维护"
     img="/post_img.webp"
-    desc="这是服务项目的描述内容。"
-    url="#"
+    desc={[
+      "· 影视拍摄现场素材的规范整理、多副本备份、元数据管理",
+      "· 长期归档体系搭建：拍摄素材 → 在线剪辑 → 归档存储的分级管理",
+      "· 个人长期维护自组 NAS 与万兆存储集群，实战经验丰富"
+    ].join("\n")}
   />
 </BaseLayout>
