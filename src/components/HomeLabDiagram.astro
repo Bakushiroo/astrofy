@@ -18,10 +18,15 @@
     </div>
   </div>
 
-  <div class="relative w-full overflow-x-auto">
+  <p class="text-xs text-base-content/60 mb-2 xl:hidden">
+    提示：在窄屏设备上，可将手机横屏以获得更佳的拓扑图阅读体验。
+  </p>
+
+  <div class="relative w-full max-w-full overflow-x-auto">
     <svg
       viewBox="0 0 800 520"
-      class="w-full h-auto min-w-[640px]"
+      preserveAspectRatio="xMidYMid meet"
+      class="w-full h-auto"
       xmlns="http://www.w3.org/2000/svg"
     >
       <defs>
@@ -60,7 +65,7 @@
 
       <!-- 交换机 -> NAS1（万兆） -->
       <line x1="370" y1="280" x2="220" y2="378" stroke="#a855f7" stroke-width="3" marker-end="url(#arrow-10g)" />
-      <text x="265" y="345" class="text-[11px] font-bold" fill="#a855f7">10GbE</text>
+      <text x="265" y="345" class="text-[11px] font-bold" fill="#a855f7">10G</text>
 
       <!-- 交换机 -> NAS2（万兆） -->
       <line x1="430" y1="280" x2="430" y2="378" stroke="#a855f7" stroke-width="3" marker-end="url(#arrow-10g)" />
